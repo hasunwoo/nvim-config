@@ -8,6 +8,9 @@ end
 -- load options.vim
 load_vimscript("options.vim")
 
+-- load keymaps.vim
+load_vimscript("keymaps.vim")
+
 if not is_vscode then
     require("plugin_manager")
     require("telescope_config")
