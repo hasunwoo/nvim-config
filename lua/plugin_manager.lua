@@ -15,6 +15,8 @@ vim.opt.rtp:prepend(lazypath)
 -- load plugins
 require("lazy").setup({
     "mg979/vim-visual-multi",
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
     {
         "folke/tokyonight.nvim",

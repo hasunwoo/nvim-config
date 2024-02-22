@@ -1,6 +1,11 @@
+require("mason").setup()
+require("mason-lspconfig").setup({
+    ensure_installed = {  "rust_analyzer", "lua_ls" },
+})
+
 local lspconfig = require("lspconfig")
 
--- Rust
+-- rust-analyzer
 lspconfig.rust_analyzer.setup {
     settings = {
         ["rust-analyzer"] = {
@@ -22,6 +27,8 @@ lspconfig.rust_analyzer.setup {
     }
 }
 
+-- lua_ls
+lspconfig.lua_ls.setup {}
 
 -- Global ma-- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
