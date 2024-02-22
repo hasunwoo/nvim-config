@@ -2,8 +2,8 @@ local lspconfig = require("lspconfig")
 
 -- Rust
 lspconfig.rust_analyzer.setup {
-	settings = {
-		["rust-analyzer"] = {
+    settings = {
+        ["rust-analyzer"] = {
             imports = {
                 granularity = {
                     group = "module",
@@ -18,8 +18,8 @@ lspconfig.rust_analyzer.setup {
             procMacro = {
                 enable = true
             },
-		},
-	}
+        },
+    }
 }
 
 
