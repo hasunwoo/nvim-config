@@ -19,5 +19,6 @@ if not is_vscode then
     require("cmp_config")
     require("theme_config")
     require("fidget_config")
+    require("lualine_config")
 end
 
