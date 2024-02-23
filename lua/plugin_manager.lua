@@ -38,11 +38,12 @@ require("lazy").setup({
         "nvim-lualine/lualine.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" }
     },
-    "j-hui/fidget.nvim",
     {
         "nvim-telescope/telescope.nvim",
         tag = "0.1.5",
         dependencies = { "nvim-lua/plenary.nvim" }
-    }
+    },
+    "j-hui/fidget.nvim",
+    "tpope/vim-surround",
 })
 
