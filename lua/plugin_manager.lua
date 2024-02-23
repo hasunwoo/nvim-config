@@ -15,9 +15,19 @@ vim.opt.rtp:prepend(lazypath)
 -- load plugins
 require("lazy").setup({
     "mg979/vim-visual-multi",
+    {
+        "nvim-treesitter/nvim-treesitter",
+        build = ":TSUpdate"
+    },
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-path",
+    "hrsh7th/cmp-cmdline",
+    "hrsh7th/nvim-cmp",
+    "L3MON4D3/LuaSnip",
     {
         "folke/tokyonight.nvim",
         lazy = false,
@@ -28,6 +38,7 @@ require("lazy").setup({
         "nvim-lualine/lualine.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" }
     },
+    "j-hui/fidget.nvim",
     {
         "nvim-telescope/telescope.nvim",
         tag = "0.1.5",

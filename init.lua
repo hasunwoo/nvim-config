@@ -14,7 +14,10 @@ load_vimscript("keymaps.vim")
 if not is_vscode then
     require("plugin_manager")
     require("telescope_config")
+    require("treesitter_config")
     require("lsp_config")
+    require("cmp_config")
     require("theme_config")
+    require("fidget_config")
 end
 
