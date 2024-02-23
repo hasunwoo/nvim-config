@@ -15,9 +15,11 @@ function M.setup()
     })
 
     local lspconfig = require("lspconfig")
+    local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
     -- rust-analyzer
     lspconfig.rust_analyzer.setup {
+        capabilities = capabilities,
         settings = {
             ["rust-analyzer"] = {
                 imports = {
