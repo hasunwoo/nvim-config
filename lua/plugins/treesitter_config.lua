@@ -1,7 +1,12 @@
 local function config_treesitter()
     require("nvim-treesitter.configs").setup {
         -- A list of parser names, or "all" (the five listed parsers should always be installed)
-        ensure_installed = { "c", "lua", "rust", "vim", "vimdoc", "java", "javascript", "toml", "json", "python" },
+        ensure_installed = {
+            "c", "lua", "rust", "vim", "vimdoc",
+            "java", "javascript", "toml", "json", "python",
+            "html", "typescript", "svelte", "vue", "php",
+            "markdown", "xml", "yaml"
+        },
         -- Install parsers synchronously (only applied to `ensure_installed`)
         sync_install = false,
 
@@ -10,7 +15,7 @@ local function config_treesitter()
         auto_install = true,
 
         -- List of parsers to ignore installing (or "all")
-        ignore_install = { },
+        ignore_install = {},
 
         ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
         -- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
@@ -21,7 +26,7 @@ local function config_treesitter()
             -- disable highlighting or the `tex` filetype, you need to include `latex` in this list as this is
             -- the name f the parser)
             -- list of anguage that will be disabled
-            disable = { },
+            disable = {},
             -- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
             -- disable = function(lang, buf)
             --     local max_filesize = 100 * 1024 -- 100 KB
@@ -45,4 +50,3 @@ return {
     build = ":TSUpdate",
     config = config_treesitter
 }
-
