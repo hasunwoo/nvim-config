@@ -1,7 +1,7 @@
 local config_path = vim.fn.stdpath("config")
 local plugin_path = "plugins"
 
-local is_vscode = vim.fn.exists("g:vscode") ~= 0 
+local is_vscode = vim.fn.exists("g:vscode") ~= 0
 
 function load_vimscript(path)
     vim.cmd("source " .. config_path .. "/" .. path)
