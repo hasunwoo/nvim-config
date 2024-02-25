@@ -32,6 +32,7 @@ if not is_vscode then
     table.insert(plugins, require_plugin("telescope_config"))
     table.insert(plugins, require_plugin("fidget_config"))
     table.insert(plugins, require_plugin("autopairs_config"))
+    table.insert(plugins, require_plugin("autotag_config"))
 end
 
 require("plugin_manager").setup(plugins)
