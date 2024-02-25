@@ -8,13 +8,13 @@ local function config_nvim_cmp()
             end,
         },
         mapping = cmp.mapping.preset.insert({
-            ["<C-p>"] = cmp.mapping.select_prev_item(select_opts),
-            ["<C-n>"] = cmp.mapping.select_next_item(select_opts),
+            ["<C-p>"] = cmp.mapping.select_prev_item(),
+            ["<C-n>"] = cmp.mapping.select_next_item(),
             ["<C-u>"] = cmp.mapping.scroll_docs(-4),
             ["<C-d>"] = cmp.mapping.scroll_docs(4),
             -- ["<C-Space>"] = cmp.mapping.complete(),
             ["<C-e>"] = cmp.mapping.abort(),
-            ["<C-y>"] = cmp.mapping.confirm({ select = true }),
+            -- ["<C-y>"] = cmp.mapping.confirm({ select = true }),
             ["<CR>"] = cmp.mapping.confirm({ select = false }),
         }),
         sources = cmp.config.sources({
@@ -22,6 +22,24 @@ local function config_nvim_cmp()
             { name = "luasnip" },
             { name = "buffer" },
             { name = "path" },
+        })
+    })
+
+    -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+    cmp.setup.cmdline({ '/', '?' }, {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = {
+            { name = 'buffer' }
+        }
+    })
+
+    -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+    cmp.setup.cmdline(':', {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources({
+            { name = 'path' }
+        }, {
+            { name = 'cmdline' }
         })
     })
 end
@@ -38,4 +56,3 @@ return {
         config = config_nvim_cmp
     }
 }
-
