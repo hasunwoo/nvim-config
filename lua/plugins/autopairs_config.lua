@@ -1,15 +1,4 @@
-local M = {}
-
-function M.load()
-    return {
-        "windwp/nvim-autopairs",
-        event = "InsertEnter",
-    }
-end
-
-function M.setup()
-    require("nvim-autopairs").setup()
-
+local function config_autopairs()
     -- If you want insert `(` after select function or method item
     local cmp_autopairs = require("nvim-autopairs.completion.cmp")
     local cmp = require("cmp")
@@ -19,5 +8,9 @@ function M.setup()
     )
 end
 
-return M
+return {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    config = config_autopairs
+}
 

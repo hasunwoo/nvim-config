@@ -1,17 +1,4 @@
-local M = {}
-
-function M.load()
-    return {
-        {
-            "folke/tokyonight.nvim",
-            lazy = false,
-            priority = 1000,
-            opts = {}
-        },
-    }
-end
-
-function M.setup()
+local function config_theme()
     vim.cmd[[colorscheme tokyonight-night]]
 
     -- tokyonight
@@ -20,6 +7,10 @@ function M.setup()
     })
 end
 
-return M
-
+return {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    config = config_theme
+}
 

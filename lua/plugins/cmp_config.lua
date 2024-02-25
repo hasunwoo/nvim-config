@@ -1,19 +1,5 @@
-local M = {}
-
-function M.load()
-    return {
-        "L3MON4D3/LuaSnip",
-        "hrsh7th/cmp-nvim-lsp",
-        "hrsh7th/cmp-buffer",
-        "hrsh7th/cmp-path",
-        "hrsh7th/cmp-cmdline",
-        "hrsh7th/nvim-cmp",
-    }
-end
-
-function M.setup()
+local function config_nvim_cmp()
     local cmp = require("cmp")
-    -- local luasnip = require("luasnip")
 
     cmp.setup({
         snippet = {
@@ -40,5 +26,16 @@ function M.setup()
     })
 end
 
-return M
+return {
+    "L3MON4D3/LuaSnip",
+    "saadparwaiz1/cmp_luasnip",
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-path",
+    "hrsh7th/cmp-cmdline",
+    {
+        "hrsh7th/nvim-cmp",
+        config = config_nvim_cmp
+    }
+}
 

@@ -1,14 +1,4 @@
-local M = {}
-
-function M.load()
-    return {
-        "williamboman/mason.nvim",
-        "williamboman/mason-lspconfig.nvim",
-        "neovim/nvim-lspconfig",
-    }
-end
-
-function M.setup()
+local function config_lsp()
     require("mason").setup()
     require("mason-lspconfig").setup({
         ensure_installed = {  "rust_analyzer", "lua_ls" },
@@ -82,4 +72,11 @@ function M.setup()
     })
 end
 
-return M
+return {
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    {
+        "neovim/nvim-lspconfig",
+        config = config_lsp
+    },
+}

@@ -1,15 +1,4 @@
-local M = {}
-
-function M.load()
-    return {
-        {
-            "nvim-lualine/lualine.nvim",
-            dependencies = { "nvim-tree/nvim-web-devicons" }
-        },
-    }
-end
-
-function M.setup()
+local function config_lualine()
     require("lualine").setup {
         options = {
             theme = "tokyonight"
@@ -17,4 +6,9 @@ function M.setup()
     }
 end
 
-return M
+return {
+    "nvim-lualine/lualine.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = config_lualine
+}
+

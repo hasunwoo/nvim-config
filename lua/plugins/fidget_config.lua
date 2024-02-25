@@ -1,10 +1,4 @@
-local M = {}
-
-function M.load()
-    return { "j-hui/fidget.nvim" }
-end
-
-function M.setup()
+local function config_fidget()
     require("fidget").setup {
       -- Options related to LSP progress subsystem
       progress = {
@@ -118,5 +112,8 @@ function M.setup()
     }
 end
 
-return M
+return {
+    "j-hui/fidget.nvim",
+    config = config_fidget
+}
 
