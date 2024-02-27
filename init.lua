@@ -3,11 +3,11 @@ local plugin_path = "plugins"
 
 local is_vscode = vim.fn.exists("g:vscode") ~= 0
 
-function load_vimscript(path)
+local function load_vimscript(path)
     vim.cmd("source " .. config_path .. "/" .. path)
 end
 
-function require_plugin(path)
+local function require_plugin(path)
     return require(plugin_path .. "/" .. path)
 end
 
