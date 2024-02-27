@@ -36,4 +36,3 @@ if not is_vscode then
 end
 
 require("plugin_manager").setup(plugins)
-
