@@ -25,11 +25,11 @@ local plugins = {}
 
 table.insert(plugins, require_plugin("surround_config"))
 table.insert(plugins, require_plugin("visual_multi_config"))
+table.insert(plugins, require_plugin("treesitter_config"))
+table.insert(plugins, require_plugin("treesitter_textobject_config"))
 
 if not is_vscode then
     table.insert(plugins, require_plugin("nvim_tree_config"))
-    table.insert(plugins, require_plugin("treesitter_config"))
-    table.insert(plugins, require_plugin("treesitter_textobject_config"))
     table.insert(plugins, require_plugin("lsp_config"))
     table.insert(plugins, require_plugin("cmp_config"))
     table.insert(plugins, require_plugin("theme_config"))
