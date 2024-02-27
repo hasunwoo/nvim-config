@@ -13,6 +13,7 @@
   "nvim-autopairs": { "branch": "master", "commit": "1efb4f2e754d282762a1413ea0528d9a45143cdd" },
   "nvim-cmp": { "branch": "main", "commit": "04e0ca376d6abdbfc8b52180f8ea236cbfddf782" },
   "nvim-lspconfig": { "branch": "master", "commit": "b8751ff9ac9fd6ce253e0653d898de02e54040d5" },
+  "nvim-tree.lua": { "branch": "master", "commit": "d35a8d5ec6358ada4b058431b367b32360737466" },
   "nvim-treesitter": { "branch": "master", "commit": "9896ef5f701cc8258c4f04c6944b77e7cfa244e3" },
   "nvim-ts-autotag": { "branch": "main", "commit": "531f48334c422222aebc888fd36e7d109cb354cd" },
   "nvim-web-devicons": { "branch": "master", "commit": "14ac5887110b06b89a96881d534230dac3ed134d" },
