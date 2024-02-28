@@ -16,6 +16,8 @@ local function config_nvim_tree()
         filters = {
             dotfiles = true,
         },
+        -- nvim-tree root is synchronized with current working directory
+        sync_root_with_cwd = true,
     })
 
     local api = require("nvim-tree.api")
