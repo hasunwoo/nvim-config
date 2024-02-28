@@ -23,10 +23,14 @@ load_vimscript("commands.vim")
 -- load plugins
 local plugins = {}
 
--- load neovim-gui-shim if gui is loaded
--- https://github.com/folke/lazy.nvim/issues/584
-if vim.fn.has("gui_running") == 1 then
-    table.insert(plugins, "equalsraf/neovim-gui-shim")
+-- load neovide config
+if vim.g.neovide then
+    require("neovide_config").setup()
+    require("neovide_config.ime_toggle").setup()
+    require("neovide_config.resize_font_keybinding").setup({
+        defaultFontName = "Delugia_Mono",
+        defaultFontSize = 13,
+    })
 end
 
 table.insert(plugins, require_plugin("surround_config"))
