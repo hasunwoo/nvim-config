@@ -20,8 +20,8 @@ load_vimscript("keymaps.vim")
 -- load commands.vim
 load_vimscript("commands.vim")
 
--- load plugins
-local plugins = {}
+-- config shell based on os. required to configure powershell on windows properly.
+require("shell_config").setup()
 
 -- load neovide config
 if vim.g.neovide then
@@ -32,6 +32,9 @@ if vim.g.neovide then
         defaultFontSize = 13,
     })
 end
+
+-- load plugins
+local plugins = {}
 
 table.insert(plugins, require_plugin("surround_config"))
 table.insert(plugins, require_plugin("visual_multi_config"))
