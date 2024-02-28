@@ -38,6 +38,8 @@ function M.setup(opt)
     m_fontName = defaultFontName
     m_fontSize = defaultFontSize
 
+    apply_font()
+
     -- font adjustment keybindings
     vim.keymap.set("n", "<C-->", function() adjust_font_size(-1) end, { silent = true })
     vim.keymap.set("n", "<C-=>", function() adjust_font_size(1) end, { silent = true })
