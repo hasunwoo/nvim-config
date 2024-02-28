@@ -23,6 +23,12 @@ load_vimscript("commands.vim")
 -- load plugins
 local plugins = {}
 
+-- load neovim-gui-shim if gui is loaded
+-- https://github.com/folke/lazy.nvim/issues/584
+if vim.fn.has("gui_running") == 1 then
+    table.insert(plugins, "equalsraf/neovim-gui-shim")
+end
+
 table.insert(plugins, require_plugin("surround_config"))
 table.insert(plugins, require_plugin("visual_multi_config"))
 table.insert(plugins, require_plugin("treesitter_config"))

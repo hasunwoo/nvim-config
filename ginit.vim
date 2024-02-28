@@ -12,13 +12,13 @@ let s:font = s:defaultFont
 
 function! AdjustFontSize(amount)
     let s:fontsize = s:fontsize + a:amount
-    silent! let &guifont = s:font . ":h" . s:fontsize
+    :execute "GuiFont! "s:font . ":h" . s:fontsize
 endfunction
 
 function! ResetFontSize()
     let s:defaultFont = "Delugia Mono"
     let s:fontsize = s:defaultFontSize
-    silent! let &guifont = s:font . ":h" . s:fontsize
+    :execute "GuiFont! "s:font . ":h" . s:fontsize
 endfunction
 
 noremap <silent> <C-ScrollWheelUp> :call AdjustFontSize(1)<CR>
