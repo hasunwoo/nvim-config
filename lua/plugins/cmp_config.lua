@@ -12,7 +12,7 @@ local function config_nvim_cmp()
             ["<C-n>"] = cmp.mapping.select_next_item(),
             ["<C-u>"] = cmp.mapping.scroll_docs(-4),
             ["<C-d>"] = cmp.mapping.scroll_docs(4),
-            ["<C-c>"] = cmp.mapping.complete(),
+            -- ["<C-c>"] = cmp.mapping.complete(),
             ["<C-e>"] = cmp.mapping.abort(),
             -- ["<C-y>"] = cmp.mapping.confirm({ select = true }),
             ["<CR>"] = cmp.mapping.confirm({ select = false }),
