@@ -29,7 +29,7 @@ if vim.g.neovide then
     require("neovide_config.ime_toggle").setup()
     require("neovide_config.resize_font_keybinding").setup({
         defaultFontName = "Delugia_Mono",
-        defaultFontSize = 13,
+        defaultFontSize = 16,
     })
 end
 
