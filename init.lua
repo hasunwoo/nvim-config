@@ -23,6 +23,9 @@ load_vimscript("commands.vim")
 -- config shell based on os. required to configure powershell on windows properly.
 require("shell_config").setup()
 
+-- initialize easy_escape module(jk, kj to escape)
+require("easy_escape").setup()
+
 -- load neovide config
 if vim.g.neovide then
     require("neovide_config").setup()
@@ -36,7 +39,6 @@ end
 -- load plugins
 local plugins = {}
 
-table.insert(plugins, require_plugin("better_escape_config"))
 table.insert(plugins, require_plugin("surround_config"))
 table.insert(plugins, require_plugin("visual_multi_config"))
 table.insert(plugins, require_plugin("treesitter_config"))
