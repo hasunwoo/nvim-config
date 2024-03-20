@@ -23,9 +23,6 @@ load_vimscript("commands.vim")
 -- config shell based on os. required to configure powershell on windows properly.
 require("shell_config").setup()
 
--- initialize easy_escape module(jk, kj to escape)
-require("easy_escape").setup()
-
 -- load neovide config
 if vim.g.neovide then
     require("neovide_config").setup()
@@ -45,6 +42,9 @@ table.insert(plugins, require_plugin("treesitter_config"))
 table.insert(plugins, require_plugin("treesitter_textobject_config"))
 
 if not is_vscode then
+    -- initialize easy_escape module(jk, kj to escape)
+    -- does not work in vscode neovim because insert mode is processed in vscode not nvim
+    require("easy_escape").setup()
     table.insert(plugins, require_plugin("nvim_tree_config"))
     table.insert(plugins, require_plugin("lsp_config"))
     table.insert(plugins, require_plugin("cmp_config"))
