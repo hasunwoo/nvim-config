@@ -52,13 +52,18 @@ end
 
 local function register_escape_keymap(mode, keys, handlers)
     for _, key in ipairs(keys) do
-        vim.keymap.set(mode, key,
+        local config = type(key) == "string" and { key = key, simulateRepeat = false } or key
+        vim.keymap.set(mode, config.key,
             function()
                 -- emulate key insertion
-                vim.api.nvim_feedkeys(key, "n", false)
+                local repeatCount = config.simulateRepeat and vim.v.count1 or 1
+                repeatCount = (repeatCount == 0) and 1 or repeatCount
+                for _ = 1, repeatCount do
+                    vim.api.nvim_feedkeys(config.key, "n", false)
+                end
                 -- run handlers
                 for _, v in ipairs(handlers) do
-                    v:onKey(key)
+                    v:onKey(config.key)
                 end
             end,
             { noremap = true, silent = true })
@@ -75,7 +80,10 @@ function M.setup()
         EscapeState:new('k', 'j', nil, "<Esc>", timeout)
     })
 
-    register_escape_keymap("v", { "j", "k" }, {
+    register_escape_keymap("v", {
+        { key = "j", simulateRepeat = true },
+        { key = "k", simulateRepeat = true }
+    }, {
         EscapeState:new('j', 'k', nil, "<Esc>", timeout),
         EscapeState:new('k', 'j', nil, "<Esc>", timeout)
     })
