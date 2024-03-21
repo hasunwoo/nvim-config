@@ -56,8 +56,7 @@ local function register_escape_keymap(mode, keys, handlers)
         vim.keymap.set(mode, config.key,
             function()
                 -- emulate key insertion
-                local repeatCount = config.simulateRepeat and vim.v.count1 or 1
-                repeatCount = (repeatCount == 0) and 1 or repeatCount
+                local repeatCount = math.max(config.simulateRepeat and vim.v.count1 or 1, 1)
                 for _ = 1, repeatCount do
                     vim.api.nvim_feedkeys(config.key, "n", false)
                 end
