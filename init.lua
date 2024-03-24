@@ -44,7 +44,8 @@ table.insert(plugins, require_plugin("treesitter_textobject_config"))
 if not is_vscode then
     -- initialize easy_escape module(jk, kj to escape)
     -- does not work in vscode neovim because insert mode is processed in vscode not nvim
-    require("easy_escape").setup()
+    -- require("easy_escape").setup()
+    table.insert(plugins, require_plugin("whichkey_config"))
     table.insert(plugins, require_plugin("nvim_tree_config"))
     table.insert(plugins, require_plugin("lsp_config"))
     table.insert(plugins, require_plugin("cmp_config"))

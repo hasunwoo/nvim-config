@@ -35,6 +35,12 @@ local function config_treesitter()
             additional_vim_regex_highlighting = false,
         },
     }
+
+    local wk = require("which-key")
+    wk.register({
+        ["<CR>"] = { "Init/Increase Selection" },
+        ["<bs>"] = { "Decrease Selection" }
+    })
 end
 
 return {
