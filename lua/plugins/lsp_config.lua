@@ -38,7 +38,6 @@ local function config_lsp()
     -- Global ma-- Global mappings.
     -- See `:help vim.diagnostic.*` for documentation on any of the below functions
     wk.register({
-        name = "diagnostic",
         ["[d"] = { vim.diagnostic.goto_prev, "Go To Previous Diagnostic" },
         ["]d"] = { vim.diagnostic.goto_next, "Go To Next Diagnostic" },
         ["<leader>"] = {
@@ -59,7 +58,6 @@ local function config_lsp()
             -- See `:help vim.lsp.*` for documentation on any of the below functions
             wk.register({
                 g = {
-                    name = "Goto",
                     D = { vim.lsp.buf.declearation, "Go To Declearation" },
                     d = { vim.lsp.buf.definition, "Go To Definition" },
                     i = { vim.lsp.buf.implementation, "Go To Implementation" },
@@ -67,7 +65,6 @@ local function config_lsp()
                 },
                 ["<leader>"] = {
                     w = {
-                        name = "Workspace",
                         a = { vim.lsp.buf.add_workspace_folder, "Add Workspace Folder" },
                         r = { vim.lsp.buf.remove_workspace_folder, "Remove Workspace Folder" },
                         l = { function()

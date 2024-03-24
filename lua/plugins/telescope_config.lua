@@ -2,7 +2,6 @@ local function config_telescope()
     local builtin = require('telescope.builtin')
     local wk = require("which-key")
     wk.register({
-        name = "telescope",
         f = {
             f = { builtin.find_files, "Find File" },
             r = { builtin.oldfiles, "Find Recent Files" },
