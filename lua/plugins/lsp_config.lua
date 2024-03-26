@@ -63,6 +63,8 @@ local function config_lsp()
                     i = { vim.lsp.buf.implementation, "Go To Implementation" },
                     r = { vim.lsp.buf.references, "Find Reference" },
                 },
+                K = { vim.lsp.buf.hover, "Hover(Show Information)" },
+                D = { vim.lsp.buf.type_definition, "Go To Type Definition" },
                 ["<leader>"] = {
                     w = {
                         a = { vim.lsp.buf.add_workspace_folder, "Add Workspace Folder" },
@@ -71,8 +73,6 @@ local function config_lsp()
                             print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
                         end, "List Workspace Folder" },
                     },
-                    K = { vim.lsp.buf.hover, "Hover(Show Information)" },
-                    D = { vim.lsp.buf.type_definition, "Go To Type Definition" },
                     rn = { vim.lsp.buf.rename, "Rename Symbol" },
                     fo = { function()
                         vim.lsp.buf.format { async = true }
