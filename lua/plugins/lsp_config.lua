@@ -74,7 +74,7 @@ local function config_lsp()
                         end, "List Workspace Folder" },
                     },
                     rn = { vim.lsp.buf.rename, "Rename Symbol" },
-                    fo = { function()
+                    rf = { function()
                         vim.lsp.buf.format { async = true }
                     end, "Reformat Code" },
                     ca = { vim.lsp.buf.code_action, "Code Action" },
