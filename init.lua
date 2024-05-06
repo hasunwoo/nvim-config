@@ -37,6 +37,7 @@ end
 local plugins = {}
 
 table.insert(plugins, require_plugin("surround_config"))
+table.insert(plugins, require_plugin("comment_config"))
 -- table.insert(plugins, require_plugin("visual_multi_config"))
 table.insert(plugins, require_plugin("treesitter_config"))
 table.insert(plugins, require_plugin("treesitter_textobject_config"))
