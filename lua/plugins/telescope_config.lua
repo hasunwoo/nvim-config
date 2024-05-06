@@ -8,6 +8,7 @@ local function config_telescope()
             g = { builtin.live_grep, "Live Grep" },
             b = { builtin.buffers, "Find Buffer" },
             h = { builtin.help_tags, "Find Help" },
+            k = { builtin.keymaps, "Find Keymaps" },
         }
     }, { prefix = "<leader>" })
     -- vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
