@@ -1,7 +1,7 @@
 local function config_lsp()
     require("mason").setup()
     require("mason-lspconfig").setup({
-        ensure_installed = { "rust_analyzer", "lua_ls" },
+        ensure_installed = { "rust_analyzer", "lua_ls", "zls" },
     })
 
     local lspconfig = require("lspconfig")
@@ -30,8 +30,15 @@ local function config_lsp()
         }
     }
 
+    -- zls(zig)
+    lspconfig.zls.setup {
+        capabilities = capabilities,
+    }
+
     -- lua_ls
-    lspconfig.lua_ls.setup {}
+    lspconfig.lua_ls.setup {
+        capabilities = capabilities,
+    }
 
     local wk = require("which-key")
 
