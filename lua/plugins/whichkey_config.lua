@@ -1,13 +1,11 @@
 local function config_whichkey()
-    require("which-key").setup()
+    require("which-key").setup({
+        delay = 0
+    })
 end
 
 return {
     "folke/which-key.nvim",
     event = "VeryLazy",
-    init = function()
-        vim.o.timeout = true
-        vim.o.timeoutlen = true
-    end,
     config = config_whichkey
 }
