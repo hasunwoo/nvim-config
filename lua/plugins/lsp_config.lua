@@ -44,13 +44,11 @@ local function config_lsp()
 
     -- Global ma-- Global mappings.
     -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-    wk.register({
-        ["[d"] = { vim.diagnostic.goto_prev, "Go To Previous Diagnostic" },
-        ["]d"] = { vim.diagnostic.goto_next, "Go To Next Diagnostic" },
-        ["<leader>"] = {
-            e = { vim.diagnostic.open_float, "Open Diagnostic" },
-            q = { vim.diagnostic.setloclist, "Add Diagnostics To Location List" },
-        }
+    wk.add({
+        { "[d",        vim.diagnostic.goto_prev,  desc = "Go To Previous Diagnostic" },
+        { "]d",        vim.diagnostic.goto_next,  desc = "Go To Next Diagnostic" },
+        { "<leader>e", vim.diagnostic.open_float, desc = "Open Diagnostic" },
+        { "<leader>q", vim.diagnostic.setloclist, desc = "Add Diagnostics To Location List" },
     })
 
     -- Use LspAttach autocommand to only map the following keys
@@ -58,36 +56,42 @@ local function config_lsp()
     vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('UserLspConfig', {}),
         callback = function(ev)
+            -- buffer to attach
+            local buf = ev.buf
             -- Enable completion triggered by <c-x><c-o>
-            vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+            vim.bo[buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
             -- Buffer local mappings.
             -- See `:help vim.lsp.*` for documentation on any of the below functions
-            wk.register({
-                g = {
-                    D = { vim.lsp.buf.declearation, "Go To Declearation" },
-                    d = { vim.lsp.buf.definition, "Go To Definition" },
-                    i = { vim.lsp.buf.implementation, "Go To Implementation" },
-                    r = { vim.lsp.buf.references, "Find Reference" },
+            wk.add({
+                { "gD",         vim.lsp.buf.declearation,            buffer = buf, desc = "Go To Declearation" },
+                { "gd",         vim.lsp.buf.definition,              buffer = buf, desc = "Go To Definition" },
+                { "gi",         vim.lsp.buf.implementation,          buffer = buf, desc = "Go To Implementation" },
+                { "gr",         vim.lsp.buf.references,              buffer = buf, desc = "Find Reference" },
+                { "K",          vim.lsp.buf.hover,                   buffer = buf, desc = "Hover(Show Information)" },
+                { "D",          vim.lsp.buf.type_definition,         buffer = buf, desc = "Go To Type Definition" },
+                { "<leader>wa", vim.lsp.buf.add_workspace_folder,    buffer = buf, desc = "Add Workspace Folder" },
+                { "<leader>wr", vim.lsp.buf.remove_workspace_folder, buffer = buf, desc = "Remove Workspace Folder" },
+                {
+                    "<leader>wl",
+                    function()
+                        print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+                    end,
+                    buffer = buf,
+                    desc = "List Workspace Folder"
                 },
-                K = { vim.lsp.buf.hover, "Hover(Show Information)" },
-                D = { vim.lsp.buf.type_definition, "Go To Type Definition" },
-                ["<leader>"] = {
-                    w = {
-                        a = { vim.lsp.buf.add_workspace_folder, "Add Workspace Folder" },
-                        r = { vim.lsp.buf.remove_workspace_folder, "Remove Workspace Folder" },
-                        l = { function()
-                            print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-                        end, "List Workspace Folder" },
-                    },
-                    rn = { vim.lsp.buf.rename, "Rename Symbol" },
-                    rf = { function()
+                { "<leader>rn",    vim.lsp.buf.rename,         buffer = buf, desc = "Rename Symbol" },
+                {
+                    "<leader>rf",
+                    function()
                         vim.lsp.buf.format { async = true }
-                    end, "Reformat Code" },
-                    ca = { vim.lsp.buf.code_action, "Code Action" },
-                    ["<C-k>"] = { vim.lsp.buf.signature_help, "Signature Help" }
-                }
-            }, { buffer = ev.buf })
+                    end,
+                    buffer = buf,
+                    desc = "Reformat Code"
+                },
+                { "<leader>ca",    vim.lsp.buf.code_action,    buffer = buf, desc = "Code Action" },
+                { "<leader><C-k>", vim.lsp.buf.signature_help, buffer = buf, desc = "Signature Help" },
+            })
         end,
     })
 end

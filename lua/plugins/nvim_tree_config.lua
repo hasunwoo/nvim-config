@@ -23,10 +23,7 @@ local function config_nvim_tree()
     local api = require("nvim-tree.api")
 
     -- toggle nvim-tree
-    local wk = require("which-key")
-    wk.register({
-        fe = { api.tree.toggle, "Toggle File Explorer" }
-    }, { prefix = "<leader>" })
+    vim.keymap.set('', '<leader>fe', api.tree.toggle, { noremap = true, silent = true, desc = "Toggle File Explorer" })
 end
 
 return {

@@ -37,9 +37,9 @@ local function config_treesitter()
     }
 
     local wk = require("which-key")
-    wk.register({
-        ["<CR>"] = { "Init/Increase Selection" },
-        ["<bs>"] = { "Decrease Selection" }
+    wk.add({
+        { "<CR>", desc = "Init/Increase Selection" },
+        { "<bs>", desc = "Decrease Selection" },
     })
 end
 
