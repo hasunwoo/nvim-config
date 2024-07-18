@@ -1,7 +1,7 @@
 local function config_lsp()
     require("mason").setup()
     require("mason-lspconfig").setup({
-        ensure_installed = { "rust_analyzer", "lua_ls", "zls" },
+        ensure_installed = { "rust_analyzer", "lua_ls", "zls", "tsserver" },
     })
 
     local lspconfig = require("lspconfig")
@@ -37,6 +37,11 @@ local function config_lsp()
 
     -- lua_ls
     lspconfig.lua_ls.setup {
+        capabilities = capabilities,
+    }
+
+    -- tsserver
+    lspconfig.tsserver.setup {
         capabilities = capabilities,
     }
 
