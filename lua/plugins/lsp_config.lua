@@ -1,9 +1,4 @@
 local function config_lsp()
-    require("mason").setup()
-    require("mason-lspconfig").setup({
-        ensure_installed = { "rust_analyzer", "lua_ls", "zls", "tsserver" },
-    })
-
     local lspconfig = require("lspconfig")
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
@@ -102,17 +97,11 @@ local function config_lsp()
 end
 
 return {
-    {
+    "neovim/nvim-lspconfig",
+    event = { "BufReadPre", "BufNewFile" },
+    config = config_lsp,
+    dependencies = {
         "williamboman/mason.nvim",
-        event = { "BufReadPre", "BufNewFile" },
-    },
-    {
         "williamboman/mason-lspconfig.nvim",
-        event = { "BufReadPre", "BufNewFile" },
-    },
-    {
-        "neovim/nvim-lspconfig",
-        event = { "BufReadPre", "BufNewFile" },
-        config = config_lsp
     },
 }

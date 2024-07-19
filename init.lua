@@ -49,6 +49,8 @@ if not is_vscode then
     table.insert(plugins, require_plugin("whichkey_config"))
     table.insert(plugins, require_plugin("nvim_tree_config"))
     table.insert(plugins, require_plugin("lsp_config"))
+    table.insert(plugins, require_plugin("dap_config"))
+    table.insert(plugins, require_plugin("mason_config"))
     table.insert(plugins, require_plugin("cmp_config"))
     table.insert(plugins, require_plugin("theme_config"))
     table.insert(plugins, require_plugin("lualine_config"))
