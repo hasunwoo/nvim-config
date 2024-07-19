@@ -4,6 +4,12 @@ local function config_dap()
     -- keybindings
     local wk = require("which-key")
 
+    -- widgets
+    local widgets = require('dap.ui.widgets')
+
+    local scope_sidebar = widgets.sidebar(widgets.scopes, {}, "botright 30 vsplit")
+    -- local scope_sidebar = widgets.sidebar(widgets.scopes)
+
     wk.add({
         { "<F5>",       function() require('dap').continue() end,          desc = "Continue" },
         { "<F10>",      function() require('dap').step_over() end,         desc = "Step Over" },
@@ -22,7 +28,6 @@ local function config_dap()
         {
             "<leader>df",
             function()
-                local widgets = require('dap.ui.widgets')
                 widgets.centered_float(widgets.frames)
             end,
             desc = "Frames"
@@ -30,8 +35,7 @@ local function config_dap()
         {
             "<leader>ds",
             function()
-                local widgets = require('dap.ui.widgets')
-                widgets.centered_float(widgets.scopes)
+                scope_sidebar.toggle()
             end,
             desc = "Scopes"
         },
