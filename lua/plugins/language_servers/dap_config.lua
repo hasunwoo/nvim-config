@@ -1,6 +1,9 @@
 local function config_dap()
     local dap = require("dap")
 
+    --make dap terminal smaller
+    dap.defaults.fallback.terminal_win_cmd = "botright 7split new"
+
     -- keybindings
     local wk = require("which-key")
 
