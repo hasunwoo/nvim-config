@@ -97,17 +97,21 @@ local function config_lsp()
                     desc = "List Workspace Folder"
                 },
                 { "<leader>rn",    vim.lsp.buf.rename,         buffer = buf, desc = "Rename Symbol" },
-                {
-                    "<leader>rf",
-                    function()
-                        vim.lsp.buf.format { async = true }
-                    end,
-                    buffer = buf,
-                    desc = "Reformat Code"
-                },
                 { "<leader>ca",    vim.lsp.buf.code_action,    buffer = buf, desc = "Code Action" },
                 { "<leader><C-k>", vim.lsp.buf.signature_help, buffer = buf, desc = "Signature Help" },
             })
+
+            -- use conform for formatting instead
+            -- wk.add({
+            --     {
+            --         "<leader>rf",
+            --         function()
+            --             vim.lsp.buf.format { async = true }
+            --         end,
+            --         buffer = buf,
+            --         desc = "Reformat Code"
+            --     }
+            -- })
         end,
     })
 end
@@ -119,5 +123,6 @@ return {
     dependencies = {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
+        "sbdchd/neoformat",
     },
 }
