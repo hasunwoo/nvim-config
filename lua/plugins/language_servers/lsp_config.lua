@@ -3,27 +3,27 @@ local function config_lsp()
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
     -- rust-analyzer
-    lspconfig.rust_analyzer.setup {
-        capabilities = capabilities,
-        settings = {
-            ["rust-analyzer"] = {
-                imports = {
-                    granularity = {
-                        group = "module",
-                    },
-                    prefix = "self",
-                },
-                cargo = {
-                    buildScripts = {
-                        enable = true,
-                    },
-                },
-                procMacro = {
-                    enable = true
-                },
-            },
-        }
-    }
+    -- lspconfig.rust_analyzer.setup {
+    --     capabilities = capabilities,
+    --     settings = {
+    --         ["rust-analyzer"] = {
+    --             imports = {
+    --                 granularity = {
+    --                     group = "module",
+    --                 },
+    --                 prefix = "self",
+    --             },
+    --             cargo = {
+    --                 buildScripts = {
+    --                     enable = true,
+    --                 },
+    --             },
+    --             procMacro = {
+    --                 enable = true
+    --             },
+    --         },
+    --     }
+    -- }
 
     -- zls(zig)
     lspconfig.zls.setup {

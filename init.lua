@@ -36,28 +36,28 @@ end
 -- load plugins
 local plugins = {}
 
-table.insert(plugins, require_plugin("surround_config"))
-table.insert(plugins, require_plugin("comment_config"))
--- table.insert(plugins, require_plugin("visual_multi_config"))
-table.insert(plugins, require_plugin("treesitter_config"))
-table.insert(plugins, require_plugin("treesitter_textobject_config"))
+table.insert(plugins, require_plugin("editing/surround_config"))
+table.insert(plugins, require_plugin("editing/comment_config"))
+-- table.insert(plugins, require_plugin("editing/visual_multi_config"))
+table.insert(plugins, require_plugin("tree_sitters/treesitter_config"))
+table.insert(plugins, require_plugin("tree_sitters/treesitter_textobject_config"))
 
 if not is_vscode then
     -- initialize easy_escape module(jk, kj to escape)
     -- does not work in vscode neovim because insert mode is processed in vscode not nvim
     -- require("easy_escape").setup()
     table.insert(plugins, require_plugin("whichkey_config"))
-    table.insert(plugins, require_plugin("nvim_tree_config"))
-    table.insert(plugins, require_plugin("lsp_config"))
-    table.insert(plugins, require_plugin("dap_config"))
-    table.insert(plugins, require_plugin("mason_config"))
-    table.insert(plugins, require_plugin("cmp_config"))
-    table.insert(plugins, require_plugin("theme_config"))
-    table.insert(plugins, require_plugin("lualine_config"))
-    table.insert(plugins, require_plugin("telescope_config"))
-    table.insert(plugins, require_plugin("fidget_config"))
-    table.insert(plugins, require_plugin("autopairs_config"))
-    table.insert(plugins, require_plugin("autotag_config"))
+    table.insert(plugins, require_plugin("ui/nvim_tree_config"))
+    table.insert(plugins, require_plugin("language_servers/lsp_config"))
+    table.insert(plugins, require_plugin("language_servers/dap_config"))
+    table.insert(plugins, require_plugin("language_servers/mason_config"))
+    table.insert(plugins, require_plugin("language_servers/cmp_config"))
+    table.insert(plugins, require_plugin("ui/theme_config"))
+    table.insert(plugins, require_plugin("ui/lualine_config"))
+    table.insert(plugins, require_plugin("ui/telescope_config"))
+    table.insert(plugins, require_plugin("ui/fidget_config"))
+    table.insert(plugins, require_plugin("editing/autopairs_config"))
+    table.insert(plugins, require_plugin("editing/autotag_config"))
 end
 
 require("plugin_manager").setup(plugins)
