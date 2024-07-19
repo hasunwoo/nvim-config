@@ -38,7 +38,23 @@ local function config_lsp()
     -- tsserver
     lspconfig.tsserver.setup {
         capabilities = capabilities,
+        provideFormatter = false,
     }
+
+    -- cssls
+    do
+        --Enable (broadcasting) snippet capability for completion
+        local capabilities = vim.lsp.protocol.make_client_capabilities()
+        capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+        lspconfig.cssls.setup {
+            capabilities = capabilities,
+            provideFormatter = false,
+        }
+    end
+
+    -- emmet_ls
+    lspconfig.emmet_language_server.setup {}
 
     local wk = require("which-key")
 

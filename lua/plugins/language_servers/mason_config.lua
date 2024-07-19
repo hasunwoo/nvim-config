@@ -4,7 +4,7 @@ end
 
 local function config_mason_lspconfig()
     require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "zls", "tsserver" },
+        ensure_installed = { "lua_ls", "zls", "tsserver", "cssls", "emmet_language_server" },
     })
 end
 
