@@ -20,6 +20,9 @@ load_vimscript("keymaps.vim")
 -- load commands.vim
 load_vimscript("commands.vim")
 
+-- load indent_config
+require("indent_config").setup()
+
 -- config shell based on os. required to configure powershell on windows properly.
 require("shell_config").setup()
 
