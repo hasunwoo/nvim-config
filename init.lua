@@ -52,6 +52,7 @@ if not is_vscode then
     table.insert(plugins, require_plugin("language_servers/dap_config"))
     table.insert(plugins, require_plugin("language_servers/mason_config"))
     table.insert(plugins, require_plugin("language_servers/cmp_config"))
+    table.insert(plugins, require_plugin("language_servers/rustaceanvim_config"))
     table.insert(plugins, require_plugin("ui/theme_config"))
     table.insert(plugins, require_plugin("ui/lualine_config"))
     table.insert(plugins, require_plugin("ui/telescope_config"))
