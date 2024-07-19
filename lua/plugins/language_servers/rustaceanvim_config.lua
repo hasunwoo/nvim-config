@@ -32,7 +32,7 @@ local function config_rustaceanvim()
                 on_attach = function(client, bufnr)
                     local wk = require("which-key")
                     wk.add({
-                        { "<leader>ss", function() vim.cmd.RustLsp("runables") end, buffer = bufnr, desc = "Run cargo project" },
+                        { "<leader>ss", function() vim.cmd.RustLsp("runnables") end, buffer = bufnr, desc = "Run cargo project" },
                         { "<leader>sh", function() vim.cmd.RustLsp("run") end,      buffer = bufnr, desc = "Run hovered entry point" },
                     })
                 end
