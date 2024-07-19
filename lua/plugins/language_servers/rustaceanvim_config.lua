@@ -1,14 +1,19 @@
 local function get_dap_adapter()
+    -- load root path from environment variable
+    local extension_path = vim.env.VSCODE_LLDB_ROOT
+    if extension_path == nil then
+        return nil
+    end
+
     -- Update this path
-    local extension_path = vim.env.HOME .. '/.vscode/extensions/vadimcn.vscode-lldb-1.10.0/'
-    local codelldb_path = extension_path .. 'adapter/codelldb'
-    local liblldb_path = extension_path .. 'lldb/lib/liblldb'
+    local codelldb_path = extension_path .. '/adapter/codelldb'
+    local liblldb_path = extension_path .. '/lldb/lib/liblldb'
     local this_os = vim.uv.os_uname().sysname;
 
     -- The path is different on Windows
     if this_os:find "Windows" then
-        codelldb_path = extension_path .. "adapter\\codelldb.exe"
-        liblldb_path = extension_path .. "lldb\\bin\\liblldb.dll"
+        codelldb_path = extension_path .. "\\adapter\\codelldb.exe"
+        liblldb_path = extension_path .. "\\lldb\\bin\\liblldb.dll"
     else
         -- The liblldb extension is .so for Linux and .dylib for MacOS
         liblldb_path = liblldb_path .. (this_os == "Linux" and ".so" or ".dylib")
@@ -31,12 +36,16 @@ local function config_rustaceanvim()
                         { "<leader>sh", function() vim.cmd.RustLsp("run") end,      buffer = bufnr, desc = "Run hovered entry point" },
                     })
                 end
-            },
-
-            dap = {
-                adapter = get_dap_adapter()
             }
         }
+
+        local dap_adapter = get_dap_adapter()
+
+        if dap_adapter ~= nil then
+            config["dap"] = {
+                adapter = dap_adapter
+            }
+        end
 
         return config
     end
