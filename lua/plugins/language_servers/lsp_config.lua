@@ -35,8 +35,8 @@ local function config_lsp()
         capabilities = capabilities,
     }
 
-    -- tsserver
-    lspconfig.tsserver.setup {
+    -- ts_ls
+    lspconfig.ts_ls.setup {
         capabilities = capabilities,
         provideFormatter = false,
     }
