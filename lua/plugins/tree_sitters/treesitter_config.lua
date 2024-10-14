@@ -1,4 +1,9 @@
 local function config_treesitter()
+    local os = vim.loop.os_uname().sysname
+    if os == "Windows_NT" then
+        -- using clang(llvm based) instead of gcc generally works better on windows
+        require("nvim-treesitter.install").compilers = { "clang" }
+    end
     require("nvim-treesitter.configs").setup {
         -- A list of parser names, or "all" (the five listed parsers should always be installed)
         ensure_installed = {
