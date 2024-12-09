@@ -11,6 +11,19 @@ local function require_plugin(path)
     return require(plugin_path .. "/" .. path)
 end
 
+_G.LoadSecrets = function()
+    local secrets_file = vim.fn.stdpath("config") .. "/secrets.lua"
+    local file = io.open(secrets_file, 'r')
+
+    if file then
+        file:close()
+        local secrets = loadfile(secrets_file)()
+        return secrets
+    else
+        return nil
+    end
+end
+
 -- load options.vim
 load_vimscript("options.vim")
 
@@ -63,6 +76,8 @@ if not is_vscode then
     table.insert(plugins, require_plugin("ui/fidget_config"))
     table.insert(plugins, require_plugin("editing/autopairs_config"))
     table.insert(plugins, require_plugin("editing/autotag_config"))
+    table.insert(plugins, require_plugin("render_markdown_config"))
+    table.insert(plugins, require_plugin("ai/codecompanion_config"))
 end
 
 require("plugin_manager").setup(plugins)

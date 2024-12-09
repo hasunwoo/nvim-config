@@ -2,11 +2,11 @@ local function config_nvim_cmp()
     local cmp = require("cmp")
 
     cmp.setup({
-        snippet = {
-            expand = function(args)
-                require("luasnip").lsp_expand(args.body)
-            end,
-        },
+        -- snippet = {
+        --     expand = function(args)
+        --         require("luasnip").lsp_expand(args.body)
+        --     end,
+        -- },
         mapping = cmp.mapping.preset.insert({
             ["<C-p>"] = cmp.mapping.select_prev_item(),
             ["<C-n>"] = cmp.mapping.select_next_item(),
@@ -19,7 +19,7 @@ local function config_nvim_cmp()
         }),
         sources = cmp.config.sources({
             { name = "nvim_lsp" },
-            { name = "luasnip" },
+            -- { name = "luasnip" },
             { name = "buffer" },
             { name = "path" },
         })
@@ -45,8 +45,8 @@ local function config_nvim_cmp()
 end
 
 return {
-    "L3MON4D3/LuaSnip",
-    "saadparwaiz1/cmp_luasnip",
+    -- "L3MON4D3/LuaSnip",
+    -- "saadparwaiz1/cmp_luasnip",
     {
         "hrsh7th/cmp-nvim-lsp",
         event = { "BufReadPre", "BufNewFile" },
