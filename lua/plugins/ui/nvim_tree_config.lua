@@ -14,7 +14,10 @@ local function config_nvim_tree()
             group_empty = true,
         },
         filters = {
-            dotfiles = true,
+            dotfiles = false,
+        },
+        git = {
+            ignore = false,
         },
         -- nvim-tree root is synchronized with current working directory
         sync_root_with_cwd = true,
