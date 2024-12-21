@@ -77,7 +77,7 @@ if not is_vscode then
     table.insert(plugins, require_plugin("editing/autopairs_config"))
     table.insert(plugins, require_plugin("editing/autotag_config"))
     table.insert(plugins, require_plugin("render_markdown_config"))
-    table.insert(plugins, require_plugin("ai/codecompanion_config"))
+    -- table.insert(plugins, require_plugin("ai/codecompanion_config"))
 end
 
 require("plugin_manager").setup(plugins)
