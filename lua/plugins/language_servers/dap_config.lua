@@ -75,5 +75,6 @@ end
 
 return {
     "mfussenegger/nvim-dap",
+    ft = { "rust" },
     config = config_dap,
 }
