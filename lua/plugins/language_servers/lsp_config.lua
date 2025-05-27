@@ -56,6 +56,9 @@ local function config_lsp()
     -- emmet_ls
     lspconfig.emmet_language_server.setup {}
 
+    -- pyright
+    require 'lspconfig'.pyright.setup {}
+
     local wk = require("which-key")
 
     -- Global ma-- Global mappings.

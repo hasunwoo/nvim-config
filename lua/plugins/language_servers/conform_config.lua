@@ -8,6 +8,7 @@ local function config_conform()
             html = { "prettier" },
             css = { "prettier" },
             json = { "prettier" },
+            python = { "black" },
         }
     })
 
